@@ -3,7 +3,7 @@ export const initialTickets = [
     id: "1",
     title: "Ticket 1",
     description:
-      "Description for Ticket 1 lorem ipsum dolor sit amet. There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form.",
+      "Description for Ticket 1 lorem ipsum dolor sit amet. There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form.There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form.",
     status: "DONE" as const,
   },
   {
