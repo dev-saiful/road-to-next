@@ -3,3 +3,9 @@ export const TICKETS_ICON = {
   OPEN: "🟡",
   IN_PROGRESS: "🔄",
 };
+
+export const TICKET_STATUSES = {
+  OPEN: "Open",
+  IN_PROGRESS: "In Progress",
+  DONE: "Done",
+};

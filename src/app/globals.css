@@ -10,6 +10,7 @@
   --font-mono: var(--font-geist-mono);
 
   --animate-fade-in-from-top: fade-in-from-top 0.5s ease-out;
+  --animate-header-top: header-from-top 0.5s ease-out;
 
   --color-sidebar-ring: var(--sidebar-ring);
 
@@ -77,6 +78,14 @@
     to {
       transform: translateY(0);
       opacity: 1;
+    }
+  }
+  @keyframes header-from-top {
+    from {
+      transform: translateY(-100%);
+    }
+    to {
+      transform: translateY(0);
     }
   }
 
