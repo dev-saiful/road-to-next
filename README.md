@@ -1,36 +1,170 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Road to Next - Ticket Management System
 
-## Getting Started
+A modern full-stack ticket management application built with Next.js 15, featuring user authentication, ticket CRUD operations, and a responsive dashboard.
 
-First, run the development server:
+## 🚀 Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- **Authentication System**: Complete user registration, login, and password management
+- **Ticket Management**: Create, read, update, and delete tickets with status tracking
+- **User Dashboard**: Personal account management with profile and password settings
+- **Responsive Design**: Mobile-first design with dark/light theme support
+- **Real-time Updates**: Optimistic UI updates and server actions
+- **Type Safety**: Full TypeScript implementation with Prisma ORM
+
+## 🛠️ Tech Stack
+
+- **Framework**: Next.js 15 (App Router)
+- **Database**: PostgreSQL with Prisma ORM
+- **Authentication**: Lucia Auth with Argon2 password hashing
+- **Styling**: Tailwind CSS + shadcn/ui components
+- **Validation**: Zod schema validation
+- **Icons**: Lucide React
+- **Type Safety**: TypeScript
+
+## 📦 Getting Started
+
+### Prerequisites
+
+- Node.js 18+
+- PostgreSQL database
+- npm/yarn/pnpm/bun
+
+### Installation
+
+1. **Clone the repository**
+
+   ```bash
+   git clone <repository-url>
+   cd road-to-next
+   ```
+
+2. **Install dependencies**
+
+   ```bash
+   npm install
+   # or
+   yarn install
+   # or
+   pnpm install
+   ```
+
+3. **Environment Setup**
+
+   ```bash
+   cp .env.example .env.local
+   ```
+
+   Update your `.env.local` with:
+
+   ```env
+   DATABASE_URL="postgresql://username:password@localhost:5432/roadtonext"
+   ```
+
+4. **Database Setup**
+
+   ```bash
+   # Generate Prisma client
+   npx prisma generate
+
+   # Run migrations
+   npx prisma db push
+
+   # Seed the database (optional)
+   npx prisma db seed
+   ```
+
+5. **Start the development server**
+
+   ```bash
+   npm run dev
+   ```
+
+   Open [http://localhost:3000](http://localhost:3000) to view the application.
+
+## 📁 Project Structure
+
+```
+src/
+├── app/                    # Next.js app router pages
+│   ├── (auth)/            # Authentication routes
+│   ├── account/           # User account management
+│   └── tickets/           # Ticket management
+├── components/            # Reusable UI components
+│   ├── ui/               # shadcn/ui components
+│   ├── form/             # Form components
+│   └── sidebar/          # Navigation components
+├── features/             # Feature-based modules
+│   ├── auth/            # Authentication logic
+│   └── ticket/          # Ticket management logic
+├── lib/                 # Utility libraries
+└── prisma/             # Database schema and migrations
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🔗 Available Routes
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- `/` - Home page (All tickets)
+- `/sign-in` - User login
+- `/sign-up` - User registration
+- `/password-forgot` - Password reset
+- `/tickets` - My tickets
+- `/tickets/[id]` - Ticket details
+- `/tickets/new` - Create new ticket
+- `/account/profile` - User profile settings
+- `/account/password` - Password change
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🗄️ Database Schema
 
-## Learn More
+- **Users**: Authentication and profile data
+- **Sessions**: User session management
+- **Tickets**: Ticket information with status tracking
 
-To learn more about Next.js, take a look at the following resources:
+## 🚀 Deployment
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Vercel (Recommended)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+1. Push your code to GitHub
+2. Connect your repository to [Vercel](https://vercel.com)
+3. Configure environment variables
+4. Deploy automatically
 
-## Deploy on Vercel
+### Manual Deployment
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```bash
+# Build the application
+npm run build
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+# Start production server
+npm start
+```
+
+## 🛡️ Security Features
+
+- Password hashing with Argon2
+- CSRF protection
+- Secure session management
+- Input validation and sanitization
+- Type-safe database queries
+
+## 📚 Learn More
+
+- [Next.js Documentation](https://nextjs.org/docs)
+- [Prisma Documentation](https://www.prisma.io/docs)
+- [Lucia Auth Documentation](https://lucia-auth.com)
+- [Tailwind CSS Documentation](https://tailwindcss.com/docs)
+- [shadcn/ui Documentation](https://ui.shadcn.com)
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Run tests and linting
+5. Submit a pull request
+
+## 📄 License
+
+This project is licensed under the MIT License.
+
+## 🐛 Issues & Support
+
+For issues and support, please create an issue in the GitHub repository.
