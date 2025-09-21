@@ -15,6 +15,7 @@ username String @unique
 email String @unique
 passwordHash String
 sessions Session[]
+tickets Ticket[]
 }
 
 model Session {
@@ -34,7 +35,11 @@ model Ticket {
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
   deadline    String   
-  bounty      Int      
+  bounty      Int     
+  userId      String
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId]) 
 }
 
 enum TicketStatus {

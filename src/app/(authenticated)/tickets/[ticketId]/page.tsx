@@ -1,6 +1,8 @@
 import { notFound } from "next/navigation";
+import { Breadcrumbs } from "@/components/form/breadcrumb";
 import { TicketItem } from "@/features/ticket/components/ticket-item";
 import { getTicket } from "@/features/ticket/queries/get-ticket";
+import { homePath } from "@/paths";
 
 type TicketPageProps = {
   params: Promise<{
@@ -16,8 +18,16 @@ const TicketPage = async ({ params }: TicketPageProps) => {
     notFound();
   }
   return (
-    <div className="flex justify-center animate-fade-in-from-top">
-      <TicketItem ticket={ticket} isDetails />
+    <div className="flex-1 flex flex-col gap-y-8">
+      <Breadcrumbs
+        breadcrumbs={[
+          { title: "Tickets", href: homePath() },
+          { title: ticket.title },
+        ]}
+      />
+      <div className="flex justify-center animate-fade-in-from-top">
+        <TicketItem ticket={ticket} isDetails />
+      </div>
     </div>
   );
 };

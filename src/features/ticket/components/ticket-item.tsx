@@ -1,5 +1,4 @@
-"use client";
-import { Ticket } from "@prisma/client";
+import { Prisma } from "@prisma/client";
 import clsx from "clsx";
 import {
   LucideMoreVertical,
@@ -15,17 +14,24 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { getAuth } from "@/features/auth/queries/get-auth";
+import { isOwner } from "@/features/auth/utils/is-owner";
 import { ticketEditPath, ticketPath } from "@/paths";
 import { toCurrencyFromCent } from "@/utils/currency";
 import { TICKETS_ICON } from "../constants";
 import { TicketMoreMenu } from "./ticket-more-menu";
 
 type TicketItemProps = {
-  ticket: Ticket;
+  ticket: Prisma.TicketGetPayload<{
+    include: { user: { select: { username: true } } };
+  }>;
   isDetails?: boolean;
 };
 
-const TicketItem = ({ ticket, isDetails }: TicketItemProps) => {
+const TicketItem = async ({ ticket, isDetails }: TicketItemProps) => {
+  const { user } = await getAuth();
+  const isTicketOwner = isOwner(user, ticket);
+
   const detailsButton = (
     <Button variant="outline" size="icon" asChild>
       <Link className="text-sm underline" prefetch href={ticketPath(ticket.id)}>
@@ -33,7 +39,7 @@ const TicketItem = ({ ticket, isDetails }: TicketItemProps) => {
       </Link>
     </Button>
   );
-  const editButton = (
+  const editButton = isTicketOwner ? (
     <Button variant="outline" size="icon" asChild>
       <Link
         className="text-sm underline"
@@ -43,9 +49,9 @@ const TicketItem = ({ ticket, isDetails }: TicketItemProps) => {
         <LucidePencil className="h-4 w-4" />
       </Link>
     </Button>
-  );
+  ) : null;
 
-  const moreMenu = (
+  const moreMenu = isTicketOwner ? (
     <TicketMoreMenu
       ticket={ticket}
       trigger={
@@ -54,7 +60,7 @@ const TicketItem = ({ ticket, isDetails }: TicketItemProps) => {
         </Button>
       }
     />
-  );
+  ) : null;
   return (
     <div
       className={clsx("w-full flex gap-x-1", {
@@ -80,7 +86,9 @@ const TicketItem = ({ ticket, isDetails }: TicketItemProps) => {
           </span>
         </CardContent>
         <CardFooter className="flex justify-between">
-          <p className="text-sm text-muted-foreground">{ticket.deadline}</p>
+          <p className="text-sm text-muted-foreground">
+            {ticket.deadline} by {ticket.user.username}
+          </p>
           <p className="text-sm text-muted-foreground">
             {toCurrencyFromCent(ticket.bounty)}
           </p>

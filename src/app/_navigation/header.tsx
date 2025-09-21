@@ -1,13 +1,12 @@
 "use client";
 
-import { LucideLogOut, LucideTickets } from "lucide-react";
+import { LucideTickets } from "lucide-react";
 import Link from "next/link";
 import { buttonVariants } from "@/components/ui/button";
-import { signOut } from "@/features/auth/actions/sign-out";
 import { useAuth } from "@/features/auth/hooks/use-auth";
-import { homePath, signInPath, signUpPath, ticketsPath } from "@/paths";
-import { SubmitButton } from "./form/submit-button";
-import { ThemeSwitcher } from "./theme/theme-switcher";
+import { homePath, signInPath, signUpPath } from "@/paths";
+import { AccountDropdown } from "./account-dropdown";
+import { ThemeSwitcher } from "../../components/theme/theme-switcher";
 
 const Header = () => {
   const { user, isFetched } = useAuth();
@@ -15,17 +14,7 @@ const Header = () => {
   if (!isFetched) return null;
 
   const navItems = user ? (
-    <>
-      <Link
-        href={ticketsPath()}
-        className={buttonVariants({ variant: "default" })}
-      >
-        Tickets
-      </Link>
-      <form action={signOut}>
-        <SubmitButton label="Sign Out" icon={<LucideLogOut />} />
-      </form>
-    </>
+    <AccountDropdown user={user} />
   ) : (
     <>
       <Link
