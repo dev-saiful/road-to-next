@@ -1,6 +1,7 @@
 "use client";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { accountPasswordPath, accountProfilePath } from "@/paths";
 

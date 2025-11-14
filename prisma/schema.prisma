@@ -9,13 +9,14 @@ datasource db {
   directUrl = env("DIRECT_URL")
 }
 
-model User{
+model User {
 id String @id @default(cuid())
 username String @unique
 email String @unique
 passwordHash String
 sessions Session[]
 tickets Ticket[]
+comments Comment[]
 }
 
 model Session {
@@ -38,8 +39,23 @@ model Ticket {
   bounty      Int     
   userId      String
   user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  comments    Comment[]
 
   @@index([userId]) 
+}
+
+model Comment {
+  id        String   @id @default(cuid())
+  content   String   @db.VarChar(1024)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  ticketId  String
+  ticket    Ticket   @relation(fields: [ticketId], references: [id], onDelete: Cascade)
+  userId    String?
+  user      User?     @relation(fields: [userId], references: [id], onDelete: SetNull)
+
+  @@index([ticketId])
+  @@index([userId])
 }
 
 enum TicketStatus {

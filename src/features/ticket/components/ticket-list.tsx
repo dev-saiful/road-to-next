@@ -1,6 +1,7 @@
 import { Placeholder } from "@/components/placeholder";
 import { TicketPagination } from "@/features/ticket/components/ticket-pagination";
 import { getTickets } from "@/features/ticket/queries/get-tickets";
+
 import { ParsedSearchParams } from "../search-params";
 import { TicketItem } from "./ticket-item";
 import { TicketSearchInput } from "./ticket-search-input";

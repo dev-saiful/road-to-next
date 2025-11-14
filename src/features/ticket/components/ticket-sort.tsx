@@ -1,5 +1,6 @@
 "use client";
 import { useQueryStates } from "nuqs";
+
 import { Sort, SortOption } from "@/components/sort";
 import { sortOptions, sortParser } from "@/features/ticket/search-params";
 

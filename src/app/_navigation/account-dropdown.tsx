@@ -1,8 +1,10 @@
 import { User as AuthUser } from "lucia";
 import { LucideLogOut, LucideUser } from "lucide-react";
 import Link from "next/link";
+
 import { signOut } from "@/features/auth/actions/sign-out";
 import { accountPasswordPath, accountProfilePath } from "@/paths";
+
 import { Avatar, AvatarFallback } from "../../components/ui/avatar";
 import {
   DropdownMenu,

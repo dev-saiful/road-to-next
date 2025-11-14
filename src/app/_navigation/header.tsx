@@ -2,11 +2,13 @@
 
 import { LucideTickets } from "lucide-react";
 import Link from "next/link";
+
 import { buttonVariants } from "@/components/ui/button";
 import { useAuth } from "@/features/auth/hooks/use-auth";
 import { homePath, signInPath, signUpPath } from "@/paths";
-import { AccountDropdown } from "./account-dropdown";
+
 import { ThemeSwitcher } from "../../components/theme/theme-switcher";
+import { AccountDropdown } from "./account-dropdown";
 
 const Header = () => {
   const { user, isFetched } = useAuth();

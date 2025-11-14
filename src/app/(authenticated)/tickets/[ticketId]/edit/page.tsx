@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+
 import { CardCompact } from "@/components/card-compact";
 import { Breadcrumbs } from "@/components/form/breadcrumb";
 import { getAuth } from "@/features/auth/queries/get-auth";
