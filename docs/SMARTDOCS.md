@@ -3,7 +3,7 @@
 
 ## Overview
 Branch: master
-Folders: prisma, public, src
+Folders: docs, prisma, public, src
 
 ## Getting Started
 Scripts: `dev`, `build`, `start`, `lint`, `lint-fix`, `postinstall`, `seed`
@@ -91,18 +91,18 @@ Scripts: `dev`, `build`, `start`, `lint`, `lint-fix`, `postinstall`, `seed`
 <!-- SMARTDOCS:BEGIN -->
 # Project Documentation
 
-> setting path added
+> docs: update SMARTDOCS for ff9a003
 
 <!-- SMARTDOCS:BEGIN -->
 # Commit Changes
 
-> setting path added
+> docs: update SMARTDOCS for ff9a003
 
 # Changelog
 
-### ff9a003 - setting path added
-**Author:** dev-saiful
-**Files:** src/app/setting/page.tsx, src/paths.ts
+### c75f845 - docs: update SMARTDOCS for ff9a003
+**Author:** Saiful Islam
+**Files:** docs/SMARTDOCS.md
 
 <!-- SMARTDOCS:END -->
 <!-- SMARTDOCS:END -->
