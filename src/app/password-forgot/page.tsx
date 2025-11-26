@@ -1,5 +1,9 @@
 const ForgotPasswordPage = () => {
-  return <div>ForgotPasswordPage</div>;
+  return (
+    <div>
+      <h1>Forgot Password</h1>
+    </div>
+  );
 };
 
 export default ForgotPasswordPage;
