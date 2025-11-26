@@ -168,3 +168,7 @@ This project is licensed under the MIT License.
 ## 🐛 Issues & Support
 
 For issues and support, please create an issue in the GitHub repository.
+
+## Author
+
+Saiful Islam
