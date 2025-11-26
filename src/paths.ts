@@ -11,3 +11,4 @@ export const passwordForgotPath = () => `/forgot-password`;
 export const accountPath = () => `/account`;
 export const accountProfilePath = () => `/account/profile`;
 export const accountPasswordPath = () => `/account/password`;
+export const accountBillingPath = () => `/account/billing`;
