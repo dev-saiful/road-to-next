@@ -1,18 +1,18 @@
 <!-- SMARTDOCS:BEGIN -->
 # Project Documentation
 
-> docs: update README for fb68494
+> docs: update SMARTDOCS for ff9a003
 
 <!-- SMARTDOCS:BEGIN -->
 # Commit Changes
 
-> docs: update README for fb68494
+> docs: update SMARTDOCS for ff9a003
 
 # Changelog
 
-### 9ba802d - docs: update README for fb68494
+### c75f845 - docs: update SMARTDOCS for ff9a003
 **Author:** Saiful Islam
-**Files:** 
+**Files:** docs/SMARTDOCS.md
 
 <!-- SMARTDOCS:END -->
 <!-- SMARTDOCS:END -->
